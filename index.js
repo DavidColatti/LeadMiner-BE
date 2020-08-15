@@ -25,7 +25,15 @@ const startServer = async () => {
     console.error(`Error connecting to mongo ${err}`);
   }
 
-  const server = new ApolloServer({ typeDefs, resolvers, playground: true });
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    playground: true,
+    introspection: true,
+    engine: {
+      reportSchema: true,
+    },
+  });
 
   const app = express();
   server.applyMiddleware({ app });
