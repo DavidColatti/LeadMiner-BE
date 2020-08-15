@@ -43,6 +43,7 @@ const startServer = async () => {
       credentials: true,
       origin: [
         "http://localhost:3000",
+        "https://leadminer.netlify.app",
         "https://leadminerbackend.herokuapp.com",
       ], //Swap this with the client url
     })
