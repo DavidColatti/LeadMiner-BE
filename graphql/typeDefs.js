@@ -32,6 +32,7 @@ const typeDefs = gql`
     leadsCount: Int
     randomLeads: [Lead]
     findUser(uid: String!): User!
+    searchLeads(key: String!, searchTerm: String!): [Lead]
   }
 `;
 

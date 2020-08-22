@@ -23,6 +23,13 @@ const resolvers = {
 
       return user;
     },
+    searchLeads: async (_, { key, searchTerm }) => {
+      const res = await Lead.find({
+        [key]: { $regex: searchTerm, $options: "i" },
+      });
+
+      return res;
+    },
   },
 };
 
