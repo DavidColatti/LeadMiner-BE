@@ -24,11 +24,15 @@ const resolvers = {
       return user;
     },
     searchLeads: async (_, { key, searchTerm }) => {
-      const res = await Lead.find({
-        [key]: { $regex: searchTerm, $options: "i" },
-      });
+      if (searchTerm.length >= 1) {
+        const res = await Lead.find({
+          [key]: { $regex: searchTerm, $options: "i" },
+        });
 
-      return res;
+        return res;
+      } else {
+        return [];
+      }
     },
   },
 };
