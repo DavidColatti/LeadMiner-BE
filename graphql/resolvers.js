@@ -35,6 +35,16 @@ const resolvers = {
       }
     },
   },
+  Mutation: {
+    updateLeadList: async (_, { id, leadList }) => {
+      const user = await User.findById(id);
+
+      user.leadsList = leadList;
+      user.save();
+
+      return user;
+    },
+  },
 };
 
 module.exports = resolvers;
