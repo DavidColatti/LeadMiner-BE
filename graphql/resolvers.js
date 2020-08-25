@@ -36,10 +36,12 @@ const resolvers = {
     },
   },
   Mutation: {
-    updateLeadList: async (_, { id, leadList }) => {
+    updateLeadList: async (_, { id, leadId }) => {
       const user = await User.findById(id);
+      const lead = await Lead.findById(leadId);
+      user.leadsList.push(lead);
 
-      user.leadsList = leadList;
+      console.log(user, lead);
       user.save();
 
       return user;

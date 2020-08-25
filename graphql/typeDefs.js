@@ -35,24 +35,8 @@ const typeDefs = gql`
     searchLeads(key: String!, searchTerm: String!): [Lead]
   }
 
-  input LeadInputType {
-    _id: ID
-    businessName: String
-    phoneNumber: String
-    city: String
-    state: String
-    firstName: String
-    lastName: String
-    streetAddress: String
-    secondPhoneNumber: String
-    notes: [String]
-    category: [String]
-    email: String
-    disposition: String
-  }
-
   type Mutation {
-    updateLeadList(id: String!, leadList: [LeadInputType]!): User!
+    updateLeadList(id: String!, leadId: String!): User!
   }
 `;
 
